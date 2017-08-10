@@ -17,6 +17,28 @@ app.engine('hbs', hbs.engine);
 app.set('view engine', 'hbs');
 app.use(bp.urlencoded());
 
+app.get('/', (req, res) => {
+  console.log('show gallery of imgs');
+  res.render('/'); // <---- takes obj as 2nd arg, { what goes here??? }
+
+});
+
+router.route('/gallery/:id')
+  // should render img with specified id ** GET
+  .get((req, res) => {
+
+  })
+
+  // should have link to edit ** PUT
+  .put((req, res) => {
+
+  })
+
+  // should have link to delete ** DELETE
+  .delete((req, res) => {
+
+  });
+
 const server = app.listen(PORT, () => {
   db.sequelize.sync();
   console.log(`server running on ${PORT}`);
