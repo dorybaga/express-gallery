@@ -1,7 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
-  var Poke = sequelize.define("Gallery", {
+  var Gallery = sequelize.define("Gallery", {
     author: DataTypes.STRING,
-    title: DataTypes.STRING,
+    link: DataTypes.STRING,
     description: DataTypes.TEXT
   }, {
     classMethods: {
