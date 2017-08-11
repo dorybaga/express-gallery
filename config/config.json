@@ -2,7 +2,7 @@
   "development": {
     "username": "dorybaga",
     "password": null,
-    "database": "express-gallery",
+    "database": "express_gallery",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
