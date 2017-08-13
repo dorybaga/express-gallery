@@ -4,12 +4,11 @@ const router = express.Router();
 const db = require('../models');
 const Gallery = db.Gallery;
 
-router.route('/gallery')
+router.route('/')
   .get((req, res) => {
-  console.log('GET req recieved');
   Gallery.findAll()
   .then((photos) => {
-    console.log('Welcome to the gallery.');
+    console.log('WELCOME TO THE GALLERY.');
     res.render('index', {gallery: photos});
   })
   .catch((err) => {
@@ -23,8 +22,8 @@ router.route('/gallery')
       description: req.body.description
   })
   .then((data) => {
-    console.log(data);
-    console.log('New image added to gallery!');
+    // console.log(data);
+    console.log('A NEW IMAGE WAS ADDED TO THE GALLERY!');
     res.end();
   })
   .catch((err) => {
@@ -32,47 +31,105 @@ router.route('/gallery')
   });
 });
 
-router.route('/gallery/:id')
+router.route('/:id/edit')
+  // should render img with specified id ** GET
+  .get((req, res) => {
+  Gallery.findById(parseInt(req.params.id))
+  .then((photo) => {
+    console.log('VIEWING PHOTO WITH ID#:', photo.id);
+    var data = {
+      id: photo.id,
+      author: photo.author,
+      link: photo.link,
+      description: photo.description
+    };
+    res.render('edit', data);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+})
+  .put((req, res) => {
+    console.log(req.body);
+    Gallery.update({
+      author: req.body.author,
+      link: req.body.link,
+      description: req.body.description
+    },{
+      where: {
+        id: req.params.id
+      }
+    })
+    .then((data) => {
+      console.log(`PHOTO WITH ID# ${req.params.id} WAS EDITED`);
+      res.redirect('/gallery');
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  })
+  .delete((req, res) => {
+    Gallery.destroy({
+      where: {
+        id: req.params.id
+      }
+    })
+    . then((data) => {
+      console.log(`PHOTO WITH ID# ${req.params.id} WAS DELETED FROM DATABASE`);
+      res.redirect('/');
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  });
+
+router.route('/:id')
   // should render img with specified id ** GET
   .get((req, res) => {
     Gallery.findById(parseInt(req.params.id))
     .then((photo) => {
-      console.log('viewing photo with id#: ', photo.id);
+      console.log('VIEWING PHOTO WITH ID#:', photo.id);
       var data = {
         id: photo.id,
         author: photo.author,
         link: photo.link,
         description: photo.description
       };
-      console.log(data);
       res.render('details', data);
     })
     .catch((err) => {
       console.log(err);
     });
   })
-  // should have link to edit ** PUT
-  .put((req, res) => {
-    Gallery.findById(parseInt(req.params.id))
-    .then((photo) => {
-      console.log('viewing photo with id#: ', photo.id);
-      var data = {
-        id: photo.id,
-        author: photo.author,
-        link: photo.link,
-        description: photo.description
-      };
-      console.log(data);
-      res.render('details', data);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-  })
+  // .put((req, res) => {
+  //   Gallery.update({
+  //     where: {
+  //       id: req.params.id
+  //     }
+  //   })
+  //   .then((data) => {
+  //     console.log(`PHOTO WITH ID# ${req.params.id} WAS EDITED`);
+  //     res.render('edit');
+  //   })
+  //   .catch((err) => {
+  //     console.log(err);
+  //   });
+  // })
+  // .delete((req, res) => {
+  //   Gallery.destroy({
+  //     where: {
+  //       id: req.params.id
+  //     }
+  //   })
+  //   . then((data) => {
+  //     console.log(`PHOTO WITH ID# ${req.params.id} WAS DELETED FROM DATABASE`);
+  //     res.redirect('/gallery');
+  //   })
+  //   .catch((err) => {
+  //     console.log(err);
+  //   });
+  // });
 
-  // should have link to delete ** DELETE
-  .delete((req, res) => {
 
-  });
 
 module.exports = router;
