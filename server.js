@@ -32,7 +32,7 @@ app.use(methodOverride(function (req, res) {
   }
 }));
 
-app.use(imgRoute);
+app.use('/gallery', imgRoute);
 
 const server = app.listen(PORT, () => {
   db.sequelize.sync();
