@@ -1,0 +1,17 @@
+<div class="detail">
+  <div class="title"></div>
+  <div class="targetPhoto">
+    <img src="{{link}}" alt="image">
+  </div>
+  <div>{{id}}</div>
+  <div class="info">
+    <form action="/gallery/{{id}}/edit" method="POST">
+      <input type="hidden" name="_method" value="PUT">
+      <input type ="text" name="author" value="{{author}}">
+      <input type ="text" name="link" value="{{link}}">
+      <input type ="text" name="description" value="{{description}}">
+      <input type="submit" value="Submit Changes"/>
+    </form>
+
+  </div>
+<div class="thumbnails"></div>
