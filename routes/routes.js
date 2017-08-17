@@ -76,7 +76,7 @@ router.route('/:id/edit')
     })
     . then((data) => {
       console.log(`PHOTO WITH ID# ${req.params.id} WAS DELETED FROM DATABASE`);
-      res.redirect('/');
+      res.redirect('/gallery');
     })
     .catch((err) => {
       console.log(err);
