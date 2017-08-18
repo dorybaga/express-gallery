@@ -31,7 +31,7 @@ app.use(methodOverride(function (req, res) {
     return method;
   }
 }));
-
+app.use('/', imgRoute);
 app.use('/gallery', imgRoute);
 
 const server = app.listen(PORT, () => {
