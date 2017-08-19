@@ -50,7 +50,7 @@ router.route('/new')
   });
 
 router.route('/:id/edit')
-  .get((req, res) => {
+  .get(userAuthenticated, (req, res) => {
   Gallery.findById(parseInt(req.params.id))
   .then((photo) => {
     console.log('VIEWING PHOTO WITH ID#:', photo.id);
