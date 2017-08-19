@@ -1,8 +1,30 @@
 /*jshint esversion: 6*/
 const express = require('express');
 const router = express.Router();
+const passport = require('passport');
 const db = require('../models');
 const Gallery = db.Gallery;
+
+function userAuthenticated(req, res, next){
+  if (req.isAuthenticated()) {
+
+    console.log('user is good :)');
+    next(); // middleware succeeded move on to next
+  } else {
+    console.log('user not good :(');
+    res.redirect('/login');
+  }
+}
+
+router.route('/login')
+  .get((req, res) => {
+    res.render('login');
+  })
+  .post(passport.authenticate('local', {
+    successRedirect: '/gallery',
+    failRedirect: '/login'
+  }));
+
 
 router.route('/')
   .get((req, res) => {
@@ -12,6 +34,7 @@ router.route('/')
     res.render('index', {gallery: photos});
   })
   .catch((err) => {
+    console.log('======================');
     console.log(err);
   });
 })
