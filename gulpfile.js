@@ -2,7 +2,7 @@ var gulp = require('gulp');
 var scss = require('gulp-sass');
 var browserSync = require('browser-sync').create();
 browserSync.init({
-  proxy: 'localhost:8000/gallery'
+  proxy: 'localhost:8000/login'
 });
 gulp.task('scss', function () {
   return gulp.src('./scss/*.scss')
