@@ -30,7 +30,7 @@ router.route('/new')
     })
     .then(() => {
       console.log('INSERTED NEW USER!');
-      res.end();
+      res.redirect('/gallery');
     })
     .catch(err => {
       console.log(err);
