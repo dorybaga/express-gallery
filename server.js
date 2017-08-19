@@ -14,7 +14,9 @@ const CONFIG = require('./config/config.json');
 
 const db = require('./models');
 const User = db.User;
-const imgRoute = require('./routes/routes.js');
+const galleryRoute = require('./routes/galleryRoutes.js');
+const loginRoute = require('./routes/loginRoutes.js');
+
 const methodOverride = require('method-override');
 
 const app = express();
@@ -99,8 +101,8 @@ app.use(methodOverride(function (req, res) {
   }
 }));
 
-// app.use('/', imgRoute);
-app.use('/gallery', imgRoute);
+app.use('/login', loginRoute);
+app.use('/gallery', galleryRoute);
 
 const server = app.listen(PORT, () => {
   db.sequelize.sync();

@@ -3,6 +3,8 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 const db = require('../models');
+const loginRoute = require('../routes/loginRoutes.js');
+
 const Gallery = db.Gallery;
 
 function userAuthenticated(req, res, next){
@@ -16,16 +18,6 @@ function userAuthenticated(req, res, next){
   }
 }
 
-router.route('/login')
-  .get((req, res) => {
-    res.render('login');
-  })
-  .post(passport.authenticate('local', {
-    successRedirect: '/gallery',
-    failRedirect: '/login'
-  }));
-
-
 router.route('/')
   .get((req, res) => {
   Gallery.findAll()
@@ -34,7 +26,6 @@ router.route('/')
     res.render('index', {gallery: photos});
   })
   .catch((err) => {
-    console.log('======================');
     console.log(err);
   });
 })
