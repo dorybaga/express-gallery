@@ -1,20 +1,16 @@
 header {
   display: flex;
   justify-content: space-between;
-  background-color: red;
-}
+  background-color: red; }
 
 #websiteName {
   font-family: 'Lato', sans-serif;
   font-size: 3rem;
-  color: gray;
-}
+  color: gray; }
 
 #welcome {
   color: gray;
-  font-size: 1rem;
-}
+  font-size: 1rem; }
 
 body {
-  font-family: 'Roberto', sans-serif;
-}
+  font-family: 'Roberto', sans-serif; }

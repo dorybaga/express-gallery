@@ -48,8 +48,8 @@ app.use(passport.session());
 passport.use(new LocalStrategy(
   function (username, password, done) {
             // ^ client side username and password
-    console.log('client-side-username', username);
-    console.log('client-side-password', password);
+    // console.log('client-side-username', username);
+    // console.log('client-side-password', password);
     User.findOne({
       where: {
         username: username
