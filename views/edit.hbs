@@ -1,22 +1,18 @@
-<div class="detail">
-  <div class="title"></div>
-  <div class="targetPhoto">
-    <img src="{{link}}" alt="image">
-  </div>
-  <div class="info">
+<div class="title_box"></div>
+<img src="{{link}}" alt="image" class="det_img_box">
+<div class="info">
 
-    <form action="/gallery/{{id}}/edit" method="POST">
-      <input type="hidden" name="_method" value="PUT">
-      <input type ="text" name="author" value="{{author}}">
-      <input type ="text" name="link" value="{{link}}">
-      <input type ="text" name="description" value="{{description}}">
-      <input type="submit" value="Submit Changes"/>
-    </form>
+  <form action="/gallery/{{id}}/edit" method="POST">
+    <input type="hidden" name="_method" value="PUT">
+    <input type ="text" name="author" value="{{author}}" class="author_box">
+    <input type ="text" name="link" value="{{link}}" class="link_box">
+    <input type ="text" name="description" value="{{description}}" class="description_box">
+    <input type="submit" value="Submit Changes"/>
+  </form>
 
-    <form action="/gallery/{{id}}/edit" method="POST">
-      <input type="hidden" name="_method" value="DELETE">
-      <input type="submit" value="Delete Post">
-    </form>
+  <form action="/gallery/{{id}}/edit" method="POST">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Delete Post">
+  </form>
 
-  </div>
-<div class="thumbnails"></div>
+<div class="thumbnail_container"></div>

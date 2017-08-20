@@ -1,20 +1,101 @@
-header {
-  display: flex;
-  justify-content: space-between;
-  background-color: red;
+#wrapper {
+  max-width: 1024px;
+  margin: 0 auto;
 }
 
-#websiteName {
+header {
+  border-top: 1px dotted;
+  display: flex;
+
+}
+
+#page_title {
   font-family: 'Lato', sans-serif;
   font-size: 3rem;
-  color: gray;
+  padding-top: 10px;
+  padding-right: 50px;
 }
 
-#welcome {
+a {
+
+  text-decoration: none;
   color: gray;
-  font-size: 1rem;
+
+}
+
+#welcome_container {
+  color: gray;
+  font-size: 14px;
+  border-left: 1px dotted;
+}
+
+.btn_login {
+  color: gray;
+  font-size: 14px;
+}
+
+.btn_newAcct {
+  color: gray;
+  font-size: 14px;
+}
+
+.gallery_wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  margin: 0 auto;
 }
 
 body {
   font-family: 'Roberto', sans-serif;
+  color: gray;
+  font-size: 12px;
 }
+
+.card_container {
+  display: block;
+  margin: 0.5rem 0.5rem;
+  height: 400;
+  width: 325px;
+  // padding: 5px;
+}
+
+.det_card_container {
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.info_container {
+
+}
+
+.gallery_image_box {
+  width: 100%;
+  height: 200px;
+}
+
+.det_img_box {
+  width: 75%;
+  height: 75%;
+}
+
+.author_box {
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+
+.description_box {
+  padding-top: 0px;
+  margin-top: 0px;
+}
+
+.form_container {
+  background-color: gray;
+  height: 500px;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+

@@ -1,11 +1,8 @@
-<div class="addNew">
+<form action="/gallery" method="POST">
+  <input type ="text" name="author" value="author" class="author_box">
+  <input type ="text" name="link" value="link" class="link_box">
+  <input type ="text" name="description" value="description" class="description_box">
+  <input type="submit" value="Submit Post"/>
+</form>
 
-    <form action="/gallery" method="POST">
-      <input type ="text" name="author" value="author">
-      <input type ="text" name="link" value="link">
-      <input type ="text" name="description" value="description">
-      <input type="submit" value="Submit Post"/>
-    </form>
-
-</div>
-<div class="thumbnails"></div>
+<div class="thumbnail_container"></div>

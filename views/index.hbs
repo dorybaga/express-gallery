@@ -1,23 +1,13 @@
-<div class="btns">
-  <div class="loginBtn">
-    <a href="/login/"> Login </a>
-  </div>
-  <div class="newUser">
-    <a href="/login/new"> Create Account </a>
-  </div>
+<div class="gallery_wrapper">
+  {{#each gallery}}
+    <div class="card_container">
+        <a href="/gallery/{{id}}">
+          <img src="{{link}}" alt="image" class="gallery_image_box">
+        </a>
+      <div class="caption_container">
+        <p class="author_box">{{author}} -</p>
+        <p class="description_box">{{description}}</p>
+      </div>
+    </div>
+  {{/each}}
 </div>
-
-{{#each gallery}}
-
-<div class="cards">
-  <div class="photos">
-    <a href="/gallery/{{id}}">
-      <img src="{{link}}" alt="image">
-    </a>
-  </div>
-  <div class="caption">
-    <p>{{author}} -</p>
-  </div>
-</div>
-
-{{/each}}

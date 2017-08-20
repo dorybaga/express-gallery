@@ -1,14 +1,13 @@
-<div class="detail">
-  <div class="title"></div>
-  <div class="targetPhoto">
-    <img src="{{link}}" alt="image">
+<div class="det_card_container">
+  <div class="title_box"></div>
+  <img src="{{link}}" alt="image" class="det_img_box">
+  <div class="info_container">
+    <p class="author_box"> {{author}} -</p>
+    <p class="description_box"> {{description}} </p>
   </div>
-  <div class="info">
-    <p class="author"> {{author}} -</p>
-    <p class="description"> {{description}} </p>
-   </div>
 <form action="/gallery/{{id}}/edit">
     <input type="submit" value="Edit Post"/>
 </form>
-<div class="thumbnails"></div>
+<div>
+<div class="thumbnail_container"></div>
 
