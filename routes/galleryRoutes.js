@@ -22,7 +22,7 @@ router.route('/')
   .get((req, res) => {
   Gallery.findAll()
   .then((photos) => {
-    console.log('WELCOME TO THE GALLERY.');
+    // console.log('WELCOME TO THE GALLERY.');
     res.render('index', {gallery: photos});
   })
   .catch((err) => {
@@ -36,7 +36,7 @@ router.route('/')
       description: req.body.description
   })
   .then((data) => {
-    console.log('A NEW IMAGE WAS ADDED TO THE GALLERY!');
+    // console.log('A NEW IMAGE WAS ADDED TO THE GALLERY!');
     res.redirect('/gallery');
   })
   .catch((err) => {
@@ -45,7 +45,7 @@ router.route('/')
 });
 
 router.route('/new')
-  .get((req, res) => {
+  .get(userAuthenticated, (req, res) => {
     res.render('new');
   });
 
@@ -53,7 +53,7 @@ router.route('/:id/edit')
   .get(userAuthenticated, (req, res) => {
   Gallery.findById(parseInt(req.params.id))
   .then((photo) => {
-    console.log('VIEWING PHOTO WITH ID#:', photo.id);
+    // console.log('VIEWING PHOTO WITH ID#:', photo.id);
     var data = {
       id: photo.id,
       author: photo.author,
@@ -78,7 +78,7 @@ router.route('/:id/edit')
       }
     })
     .then((data) => {
-      console.log(`PHOTO WITH ID# ${req.params.id} WAS EDITED`);
+      // console.log(`PHOTO WITH ID# ${req.params.id} WAS EDITED`);
       res.redirect('/gallery');
     })
     .catch((err) => {
@@ -92,7 +92,7 @@ router.route('/:id/edit')
       }
     })
     . then((data) => {
-      console.log(`PHOTO WITH ID# ${req.params.id} WAS DELETED FROM DATABASE`);
+      // console.log(`PHOTO WITH ID# ${req.params.id} WAS DELETED FROM DATABASE`);
       res.redirect('/gallery');
     })
     .catch((err) => {
@@ -104,7 +104,7 @@ router.route('/:id')
   .get((req, res) => {
     Gallery.findById(parseInt(req.params.id))
     .then((photo) => {
-      console.log('VIEWING PHOTO WITH ID#:', photo.id);
+      // console.log('VIEWING PHOTO WITH ID#:', photo.id);
       var data = {
         id: photo.id,
         author: photo.author,

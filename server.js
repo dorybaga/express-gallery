@@ -7,7 +7,7 @@ const session = require('express-session');
 const passport = require('passport');
 const RedisStore = require('connect-redis')(session);
 const LocalStrategy = require('passport-local').Strategy;
-// const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt');
 
 const PORT = process.env.PORT || 3000;
 const CONFIG = require('./config/config.json');
@@ -31,8 +31,6 @@ app.use(express.static('public'));
 app.use(bp.urlencoded());
 app.use(bp.json());
 
-const saltRound = 10;
-
 app.use(session({
 
   store: new RedisStore(),
@@ -48,27 +46,40 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 passport.use(new LocalStrategy(
-  function(username, password, done) {
-    console.log('checking username', username);
-    console.log('checking password', password);
+  function (username, password, done) {
+            // ^ client side username and password
+    console.log('client-side-username', username);
+    console.log('client-side-password', password);
     User.findOne({
-       where : {
-          username : username
-        }
-      }).then((user) => {
-      console.log('This is the user', user);
-      if (user.password === password) {
-        console.log('username and password successful');
-        return done(null, user);
-      } else {
-       console.log('password was incorrect');
-       return done(null, false, { message: 'incorrect password' });
-      }}).catch((err) => {
-       console.log('username not found');
-       console.log(err);
-      return done(null, false, { message: 'incorrect username' });
+      where: {
+        username: username
+      }
+    }).then ((user) => {
+      console.log('User exists in DB');
+      // password === comes from the client POST request (user input)
+      // user.password === hash
+
+      bcrypt.compare(password, user.password)
+        .then(result => {
+          if(result){
+            console.log('username and password correct!');
+            return done(null, user);
+          } else {
+            console.log('password does not match');
+            return done(null, false, { message: 'incorrect password' });
+          }
+        }).catch(err => {
+          console.log(err);
+        });
+
+      // move on to the password
+    }).catch((err) => {
+      console.log('Username not found');
+      console.log(err);
+      return done(null, false, {message: 'Incorrect Username'});
     });
-  }));
+  }
+));
 
 passport.serializeUser(function(user, done) {
   console.log('serializing the user into session');
