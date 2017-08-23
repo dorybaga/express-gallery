@@ -3,14 +3,33 @@
   margin: 0 auto; }
 
 header {
+  width: 100%;
   border-top: 1px dotted;
   display: flex; }
+
+.container_left {
+  width: 25%;
+  background-color: red; }
+
+.main {
+  display: flex;
+  flex-flow: row;
+  width: 100%;
+  background-color: yellow; }
+
+.container_right {
+  width: 50%;
+  background-color: blue; }
+
+footer {
+  padding: 100px;
+  background-color: green; }
 
 #page_title {
   font-family: 'Lato', sans-serif;
   font-size: 3rem;
   padding-top: 10px;
-  padding-right: 50px; }
+  padding-right: 150px; }
 
 a {
   text-decoration: none;
@@ -19,7 +38,9 @@ a {
 #welcome_container {
   color: gray;
   font-size: 14px;
-  border-left: 1px dotted; }
+  border-left: 1px dotted;
+  padding-top: 18px;
+  padding-left: 15px; }
 
 .btn_login {
   color: gray;
@@ -32,7 +53,8 @@ a {
 .gallery_wrapper {
   display: flex;
   flex-flow: row wrap;
-  margin: 0 auto; }
+  margin: 0 auto;
+  margin-top: 5rem; }
 
 body {
   font-family: 'Roberto', sans-serif;
@@ -65,10 +87,3 @@ body {
 .description_box {
   padding-top: 0px;
   margin-top: 0px; }
-
-.form_container {
-  background-color: gray;
-  height: 500px;
-  width: 500px;
-  display: flex;
-  flex-direction: column; }

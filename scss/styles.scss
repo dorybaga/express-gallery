@@ -4,29 +4,52 @@
 }
 
 header {
+  width: 100%;
   border-top: 1px dotted;
   display: flex;
+}
 
+.container_left {
+  width: 25%;
+  background-color: red;
+}
+
+.main {
+  display: flex;
+  flex-flow: row;
+  width: 100%;
+  background-color: yellow;
+}
+
+.container_right {
+  width: 50%;
+  background-color: blue;
+}
+
+
+footer {
+  padding: 100px;
+  background-color: green;
 }
 
 #page_title {
   font-family: 'Lato', sans-serif;
   font-size: 3rem;
   padding-top: 10px;
-  padding-right: 50px;
+  padding-right: 150px;
 }
 
 a {
-
   text-decoration: none;
   color: gray;
-
 }
 
 #welcome_container {
   color: gray;
   font-size: 14px;
   border-left: 1px dotted;
+  padding-top: 18px;
+  padding-left: 15px;
 }
 
 .btn_login {
@@ -43,6 +66,7 @@ a {
   display: flex;
   flex-flow: row wrap;
   margin: 0 auto;
+  margin-top: 5rem;
 }
 
 body {
@@ -66,10 +90,6 @@ body {
 
 }
 
-.info_container {
-
-}
-
 .gallery_image_box {
   width: 100%;
   height: 200px;
@@ -89,13 +109,3 @@ body {
   padding-top: 0px;
   margin-top: 0px;
 }
-
-.form_container {
-  background-color: gray;
-  height: 500px;
-  width: 500px;
-  display: flex;
-  flex-direction: column;
-}
-
-
