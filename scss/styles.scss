@@ -1,35 +1,35 @@
 #wrapper {
-  max-width: 1024px;
+  max-width: 1400px;
   margin: 0 auto;
+  padding-top: 50px;
 }
 
 header {
-  width: 100%;
+  width: 85%;
   border-top: 1px dotted;
   display: flex;
 }
 
 .container_left {
-  width: 25%;
-  background-color: red;
+  width: 20%;
+  // background-color: red;
 }
 
 .main {
   display: flex;
   flex-flow: row;
-  width: 100%;
-  background-color: yellow;
+  // background-color: yellow;
+  width: 85%;
 }
 
-.container_right {
-  width: 50%;
-  background-color: blue;
-}
-
+// .container_right {
+//   width: 50%;
+//   background-color: blue;
+// }
 
 footer {
   padding: 100px;
-  background-color: green;
+  // background-color: green;
 }
 
 #page_title {
@@ -52,6 +52,13 @@ a {
   padding-left: 15px;
 }
 
+.btn_container {
+  padding-top: 10px;
+  display: flex;
+  flex-flow: column;
+
+}
+
 .btn_login {
   color: gray;
   font-size: 14px;
@@ -63,10 +70,14 @@ a {
 }
 
 .gallery_wrapper {
+  // background-color: purple;
+  width: 100%;
   display: flex;
   flex-flow: row wrap;
-  margin: 0 auto;
-  margin-top: 5rem;
+  justify-content: space-around;
+  margin: auto;
+  margin-top: 1rem;
+  border-sizing: border-box;
 }
 
 body {
@@ -75,19 +86,24 @@ body {
   font-size: 12px;
 }
 
+.feature_img {
+  margin-top: 5rem;
+  width: 100%;
+  padding-bottom: 0px;
+  // justify-content: center;
+}
+
 .card_container {
   display: block;
   margin: 0.5rem 0.5rem;
   height: 400;
   width: 325px;
-  // padding: 5px;
 }
 
 .det_card_container {
   margin-top: 5rem;
   display: flex;
   flex-direction: column;
-
 }
 
 .gallery_image_box {

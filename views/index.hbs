@@ -1,13 +1,18 @@
-<div class="gallery_wrapper">
-  {{#each gallery}}
-    <div class="card_container">
-        <a href="/gallery/{{id}}">
-          <img src="{{link}}" alt="image" class="gallery_image_box">
-        </a>
-      <div class="caption_container">
-        <p class="author_box">{{author}} -</p>
-        <p class="description_box">{{description}}</p>
+<div class="content_wrapper">
+  <div class="feature_img_box">
+      <img src="http://images.adsttc.com/media/images/5452/db24/e58e/ce64/0100/0105/large_jpg/52852152e8e44e8e7200015f_heydar-aliyev-center-zaha-hadid-architects_hac_exterior_photo_by_hufton_crow_-1-.jpg?1414716185" alt="image" class="feature_img">
+  </div>
+  <div class="gallery_wrapper">
+    {{#each gallery}}
+      <div class="card_container">
+          <a href="/gallery/{{id}}">
+            <img src="{{link}}" alt="image" class="gallery_image_box">
+          </a>
+        <div class="caption_container">
+          <p class="author_box">{{author}} -</p>
+          <p class="description_box">{{description}}</p>
+        </div>
       </div>
-    </div>
-  {{/each}}
+    {{/each}}
+  </div>
 </div>
